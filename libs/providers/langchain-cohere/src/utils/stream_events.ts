@@ -41,7 +41,10 @@ export async function* convertCohereStream(
       yield { event: "message-start" as const };
     }
 
-    if (chunk.eventType === "text-generation" && typeof chunk.text === "string") {
+    if (
+      chunk.eventType === "text-generation" &&
+      typeof chunk.text === "string"
+    ) {
       if (!textStarted) {
         textStarted = true;
         yield {

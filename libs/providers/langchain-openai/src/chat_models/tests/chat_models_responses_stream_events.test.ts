@@ -86,4 +86,11 @@ describe("ChatOpenAIResponses._streamChatModelEvents", () => {
     };
     expect(start.id).toBe("resp_test");
   });
+
+  describe("streaming events", () => {
+    test("streams text", async () => {
+      const model = new MockStreamChatOpenAIResponses(textEvents());
+      await expect(model.streamV2("Hello")).toHaveStreamText("Hi");
+    });
+  });
 });

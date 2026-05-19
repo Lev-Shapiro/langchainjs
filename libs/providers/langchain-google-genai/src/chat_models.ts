@@ -953,7 +953,9 @@ export class ChatGoogleGenerativeAI
     const shouldStreamUsage =
       this.streamUsage !== false && options.streamUsage !== false;
     const abortableStream = async function* (
-      source: AsyncIterable<import("@google/generative-ai").EnhancedGenerateContentResponse>,
+      source: AsyncIterable<
+        import("@google/generative-ai").EnhancedGenerateContentResponse
+      >,
       signal?: AbortSignal
     ) {
       for await (const chunk of source) {

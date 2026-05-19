@@ -620,9 +620,12 @@ export abstract class BaseChatGoogle<
       }
     }
 
-    yield* convertGoogleGeminiStream(geminiChunks(eventStream, options.signal), {
-      streamUsage: shouldStreamUsage,
-    });
+    yield* convertGoogleGeminiStream(
+      geminiChunks(eventStream, options.signal),
+      {
+        streamUsage: shouldStreamUsage,
+      }
+    );
   }
 
   async *_streamResponseChunks(

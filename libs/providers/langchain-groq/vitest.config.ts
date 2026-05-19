@@ -1,29 +1,20 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import {
   configDefaults,
   defineConfig,
-  type UserConfigExport,
+  type ViteUserConfigExport,
 } from "vitest/config";
 import pkg from "./package.json" with { type: "json" };
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const coreOpenAICompletionsStream = path.resolve(
-  __dirname,
-  "../../langchain-core/src/language_models/openai_completions_stream.ts"
-);
-
 const define = { __PKG_VERSION__: JSON.stringify(pkg.version) };
 
 export default defineConfig((env) => {
-  const common: UserConfigExport = {
+  const common: ViteUserConfigExport = {
     test: {
       environment: "node",
       hideSkippedTests: true,
       testTimeout: 30_000,
       maxWorkers: 0.5,
       exclude: ["**/*.int.test.ts", ...configDefaults.exclude],
-      setupFiles: ["dotenv/config"],
+      setupFiles: ["dotenv/config", "./vitest.setup.ts"],
     },
   };
 
@@ -72,12 +63,6 @@ export default defineConfig((env) => {
 
   return {
     define,
-    resolve: {
-      alias: {
-        "@langchain/core/language_models/openai_completions_stream":
-          coreOpenAICompletionsStream,
-      },
-    },
     test: {
       ...common.test,
       environment: "node",

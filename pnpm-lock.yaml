@@ -2074,9 +2074,6 @@ importers:
 
   libs/providers/langchain-perplexity:
     dependencies:
-      '@langchain/openai':
-        specifier: workspace:*
-        version: link:../langchain-openai
       openai:
         specifier: ^6.37.0
         version: 6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)

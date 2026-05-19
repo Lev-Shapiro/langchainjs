@@ -13,7 +13,9 @@ async function collectEvents(
   events: XAIResponsesStreamEvent[]
 ): Promise<ChatModelStreamEvent[]> {
   const out: ChatModelStreamEvent[] = [];
-  for await (const event of convertXAIResponsesStream(asAsyncIterable(events))) {
+  for await (const event of convertXAIResponsesStream(
+    asAsyncIterable(events)
+  )) {
     out.push(event);
   }
   return out;
@@ -52,7 +54,9 @@ describe("convertXAIResponsesStream", () => {
 
     expect(events.map((e) => e.event)).toContain("message-finish");
     const providerMeta = events.find(
-      (e) => e.event === "provider" && (e as { name: string }).name === "response.created"
+      (e) =>
+        e.event === "provider" &&
+        (e as { name: string }).name === "response.created"
     ) as { provider: string };
     expect(providerMeta.provider).toBe("xai");
   });

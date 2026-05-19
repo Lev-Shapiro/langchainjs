@@ -89,9 +89,7 @@ describe("convertMistralStream", () => {
         choices: [{ index: 0, delta: { content: "Hi" }, finishReason: null }],
       },
       {
-        choices: [
-          { index: 0, delta: {}, finishReason: "stop" },
-        ],
+        choices: [{ index: 0, delta: {}, finishReason: "stop" }],
       },
     ]);
 

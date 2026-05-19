@@ -369,7 +369,9 @@ export async function* convertOpenAICompletionsStream(
   };
 }
 
-function getReasoningDeltaText(delta: OpenAICompletionsDelta): string | undefined {
+function getReasoningDeltaText(
+  delta: OpenAICompletionsDelta
+): string | undefined {
   const reasoning = delta.reasoning_content ?? delta.reasoning;
   return typeof reasoning === "string" && reasoning.length > 0
     ? reasoning
@@ -388,9 +390,7 @@ function buildGroqUsageSnapshot(usage: {
   };
 }
 
-function mapFinishReason(
-  reason: OpenAICompletionsFinishReason
-): FinishReason {
+function mapFinishReason(reason: OpenAICompletionsFinishReason): FinishReason {
   switch (reason) {
     case "stop":
       return "stop";

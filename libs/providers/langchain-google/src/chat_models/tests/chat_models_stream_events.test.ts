@@ -1,13 +1,10 @@
-import { describe, test, expect } from "vitest";
-import type { ChatModelStreamEvent } from "@langchain/core/language_models/event";
-import { ChatModelStream } from "@langchain/core/language_models/stream";
-import type { BaseChatModelCallOptions } from "@langchain/core/language_models/chat_models";
+import { describe, expect, test } from "vitest";
 import { ApiClient } from "../../clients/index.js";
 import { ChatGoogle } from "../index.js";
 import type { Gemini } from "../api-types.js";
 
 class MockChunkStreamingResponse implements Response {
-  readonly headers: Headers = new Headers();
+  readonly headers = new Headers();
   readonly ok = true;
   readonly redirected = false;
   readonly status = 200;
@@ -68,44 +65,69 @@ class MockStreamingApiClient extends ApiClient {
   }
 }
 
-const streamChunks: Gemini.GenerateContentResponse[] = [
+const textChunks: Gemini.GenerateContentResponse[] = [
+  { candidates: [{ content: { parts: [{ text: "Hello" }] } }] },
+  { candidates: [{ content: { parts: [{ text: " world" }] } }] },
+];
+
+const reasoningChunks: Gemini.GenerateContentResponse[] = [
   {
-    candidates: [{ content: { parts: [{ text: "Hello" }] } }],
-  },
-  {
-    candidates: [{ content: { parts: [{ text: " world" }] } }],
+    candidates: [
+      {
+        content: {
+          parts: [{ text: "Let me reason...", thought: true }],
+        },
+      },
+    ],
   },
 ];
 
-describe("ChatGoogle._streamChatModelEvents", () => {
-  test("ChatModelStream.text end-to-end", async () => {
-    const model = new ChatGoogle({
-      model: "gemini-2.0-flash",
-      apiKey: "fake-key",
-      apiClient: new MockStreamingApiClient(streamChunks),
-    });
-    const stream = new ChatModelStream(
-      model._streamChatModelEvents([], {} as BaseChatModelCallOptions)
+const toolChunks: Gemini.GenerateContentResponse[] = [
+  { candidates: [{ content: { parts: [{ text: "Let me search." }] } }] },
+  {
+    candidates: [
+      {
+        content: {
+          parts: [
+            {
+              functionCall: {
+                name: "web_search",
+                args: { query: "weather" },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
+];
+
+function mockChatGoogle(chunks: Gemini.GenerateContentResponse[]) {
+  return new ChatGoogle({
+    model: "gemini-2.0-flash",
+    apiKey: "fake-key",
+    apiClient: new MockStreamingApiClient(chunks),
+  });
+}
+
+describe("ChatGoogle.streamV2", () => {
+  test("streams text", async () => {
+    await expect(mockChatGoogle(textChunks).streamV2("Hello")).toHaveStreamText(
+      "Hello world"
     );
-    const text = await stream.text;
-    expect(text).toContain("Hello");
-    expect(text).toContain("world");
   });
 
-  test("emits message lifecycle", async () => {
-    const model = new ChatGoogle({
-      model: "gemini-2.0-flash",
-      apiKey: "fake-key",
-      apiClient: new MockStreamingApiClient(streamChunks),
-    });
-    const events: ChatModelStreamEvent[] = [];
-    for await (const event of model._streamChatModelEvents(
-      [],
-      {} as BaseChatModelCallOptions
-    )) {
-      events.push(event);
-    }
-    expect(events.map((e) => e.event)).toContain("message-start");
-    expect(events.map((e) => e.event)).toContain("message-finish");
+  test("streams reasoning", async () => {
+    await expect(
+      mockChatGoogle(reasoningChunks).streamV2("Hello")
+    ).toHaveStreamReasoning("Let me reason...");
+  });
+
+  test("streams tool calls", async () => {
+    await expect(
+      mockChatGoogle(toolChunks).streamV2("Hello")
+    ).toHaveStreamToolCalls([
+      { name: "web_search", args: { query: "weather" } },
+    ]);
   });
 });

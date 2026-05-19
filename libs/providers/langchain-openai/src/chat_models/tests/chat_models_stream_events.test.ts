@@ -470,9 +470,9 @@ describe("ChatOpenAICompletions._streamChatModelEvents (native)", () => {
         events.push(event);
       }
 
-      const finish = events.find(
-        (e) => e.event === "content-block-finish"
-      ) as { content: { type: string; text: string } };
+      const finish = events.find((e) => e.event === "content-block-finish") as {
+        content: { type: string; text: string };
+      };
       expect(finish.content.type).toBe("text");
       expect(finish.content.text).toBe("Hello world");
     });
@@ -515,12 +515,10 @@ describe("ChatOpenAICompletions._streamChatModelEvents (native)", () => {
       );
       expect(reasoningDeltas.length).toBe(2);
       expect(
-        (reasoningDeltas[0] as { delta: { reasoning: string } }).delta
-          .reasoning
+        (reasoningDeltas[0] as { delta: { reasoning: string } }).delta.reasoning
       ).toBe("Let me");
       expect(
-        (reasoningDeltas[1] as { delta: { reasoning: string } }).delta
-          .reasoning
+        (reasoningDeltas[1] as { delta: { reasoning: string } }).delta.reasoning
       ).toBe(" reason...");
 
       const reasoningFinish = events.find(
@@ -573,8 +571,8 @@ describe("ChatOpenAICompletions._streamChatModelEvents (native)", () => {
       );
       const toolArgDeltas = toolDeltas.filter(
         (e) =>
-          (e as { delta: { fields?: { args?: string } } }).delta.fields
-            ?.args != null
+          (e as { delta: { fields?: { args?: string } } }).delta.fields?.args !=
+          null
       );
       expect(toolArgDeltas.length).toBe(2);
       expect(
@@ -611,7 +609,9 @@ describe("ChatOpenAICompletions._streamChatModelEvents (native)", () => {
     });
 
     test("invalid tool call JSON becomes invalid_tool_call", async () => {
-      const model = new MockStreamChatOpenAICompletions(invalidToolCallChunks());
+      const model = new MockStreamChatOpenAICompletions(
+        invalidToolCallChunks()
+      );
       const events: ChatModelStreamEvent[] = [];
       for await (const event of model._streamChatModelEvents(
         [],
@@ -826,6 +826,29 @@ describe("ChatOpenAICompletions._streamChatModelEvents (native)", () => {
       );
       expect(message._getType()).toBe("ai");
       expect(message.id).toBe("chatcmpl-abc");
+    });
+  });
+
+  describe("streaming events", () => {
+    test("streams text", async () => {
+      const model = new MockStreamChatOpenAICompletions(textOnlyChunks());
+      await expect(model.streamV2("Hello")).toHaveStreamText("Hello world");
+    });
+
+    test("streams tool calls", async () => {
+      const model = new MockStreamChatOpenAICompletions(toolCallChunks());
+      await expect(model.streamV2("Hello")).toHaveStreamToolCalls([
+        { name: "web_search", args: { query: "weather" } },
+      ]);
+    });
+
+    test("streams reasoning", async () => {
+      const model = new MockStreamChatOpenAICompletions(
+        reasoningPlusTextChunks()
+      );
+      await expect(model.streamV2("Hello")).toHaveStreamReasoning(
+        "Let me reason..."
+      );
     });
   });
 });

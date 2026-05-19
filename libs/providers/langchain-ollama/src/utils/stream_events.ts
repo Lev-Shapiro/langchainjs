@@ -109,7 +109,10 @@ export async function* convertOllamaStream(
       yield {
         event: "content-block-delta" as const,
         index,
-        delta: { type: "reasoning-delta" as const, reasoning: message.thinking },
+        delta: {
+          type: "reasoning-delta" as const,
+          reasoning: message.thinking,
+        },
       };
     }
 

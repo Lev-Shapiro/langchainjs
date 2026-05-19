@@ -101,4 +101,11 @@ describe("ChatXAIResponses._streamChatModelEvents", () => {
     expect(events.map((e) => e.event)).toContain("message-start");
     expect(events.map((e) => e.event)).toContain("message-finish");
   });
+
+  describe("streaming events", () => {
+    test("streams text", async () => {
+      const model = new MockStreamChatXAIResponses(textEvents());
+      await expect(model.streamV2("Hello")).toHaveStreamText("Hello");
+    });
+  });
 });

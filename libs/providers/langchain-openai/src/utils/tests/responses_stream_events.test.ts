@@ -23,9 +23,7 @@ async function collectEvents(
   return out;
 }
 
-function completedResponse(
-  overrides: Record<string, unknown> = {}
-): RawEvent {
+function completedResponse(overrides: Record<string, unknown> = {}): RawEvent {
   return {
     type: "response.completed",
     response: {
@@ -80,7 +78,9 @@ describe("convertOpenAIResponsesStream", () => {
     );
     expect(deltas).toHaveLength(2);
     expect((deltas[0] as { delta: { text: string } }).delta.text).toBe("Hello");
-    expect((deltas[1] as { delta: { text: string } }).delta.text).toBe(" world");
+    expect((deltas[1] as { delta: { text: string } }).delta.text).toBe(
+      " world"
+    );
 
     const finish = events.find(
       (e) => e.event === "content-block-finish"

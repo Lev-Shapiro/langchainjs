@@ -387,10 +387,7 @@ export abstract class ChatGoogleBase<AuthOptions>
     const stream = response.data as JsonStream;
     const shouldStreamUsage =
       this.streamUsage !== false && options.streamUsage !== false;
-    async function* geminiChunks(
-      jsonStream: JsonStream,
-      signal?: AbortSignal
-    ) {
+    async function* geminiChunks(jsonStream: JsonStream, signal?: AbortSignal) {
       while (!jsonStream.streamDone) {
         if (signal?.aborted) {
           return;

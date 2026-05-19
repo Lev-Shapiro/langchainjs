@@ -14,8 +14,7 @@ import {
 // oxlint-disable-next-line @typescript-eslint/no-explicit-any
 export type MistralStreamData = Record<string, any>;
 
-export interface ConvertMistralStreamOptions
-  extends ConvertOpenAICompletionsStreamOptions {}
+export interface ConvertMistralStreamOptions extends ConvertOpenAICompletionsStreamOptions {}
 
 function mistralDataToOpenAIChunk(
   data: MistralStreamData
@@ -59,8 +58,7 @@ function mistralDataToOpenAIChunk(
       {
         index: choice.index ?? 0,
         delta: mappedDelta,
-        finish_reason:
-          choice.finish_reason ?? choice.finishReason ?? null,
+        finish_reason: choice.finish_reason ?? choice.finishReason ?? null,
         logprobs: choice.logprobs ?? null,
       },
     ],
