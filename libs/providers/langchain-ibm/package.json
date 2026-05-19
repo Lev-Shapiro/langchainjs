@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@ibm-cloud/watsonx-ai": "^1.7.11",
+    "@langchain/openai": "workspace:*",
     "ibm-cloud-sdk-core": "^5.4.10",
     "zod": "^3.25.76 || ^4"
   },

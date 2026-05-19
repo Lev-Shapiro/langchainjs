@@ -1,9 +1,15 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   configDefaults,
   defineConfig,
   type UserConfigExport,
 } from "vitest/config";
 import pkg from "./package.json" with { type: "json" };
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const openaiSrc = path.resolve(__dirname, "../langchain-openai/src/index.ts");
+
 const define = { __PKG_VERSION__: JSON.stringify(pkg.version) };
 
 export default defineConfig((env) => {
@@ -63,6 +69,11 @@ export default defineConfig((env) => {
 
   return {
     define,
+    resolve: {
+      alias: {
+        "@langchain/openai": openaiSrc,
+      },
+    },
     test: {
       ...common.test,
       environment: "node",

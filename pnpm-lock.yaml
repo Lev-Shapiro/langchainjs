@@ -210,7 +210,7 @@ importers:
         version: link:../libs/providers/langchain-xai
       '@layerup/layerup-security':
         specifier: ^1.6.0
-        version: 1.6.0(encoding@0.1.13)(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)
+        version: 1.6.0(encoding@0.1.13)(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)
       '@opensearch-project/opensearch':
         specifier: ^3.5.1
         version: 3.5.1
@@ -300,7 +300,7 @@ importers:
         version: 2.2.7
       exa-js:
         specifier: ^1.10.3
-        version: 1.10.3(encoding@0.1.13)(ws@5.2.4(bufferutil@4.1.0))
+        version: 1.10.3(encoding@0.1.13)(ws@8.20.0(bufferutil@4.1.0))
       firebase-admin:
         specifier: ^13.7.0
         version: 13.8.0(encoding@0.1.13)
@@ -321,25 +321,25 @@ importers:
         version: link:../libs/langchain
       langsmith:
         specifier: ^0.6.0
-        version: 0.6.0(@opentelemetry/api@1.9.1)(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6))(ws@5.2.4(bufferutil@4.1.0))
+        version: 0.6.0(@opentelemetry/api@1.9.1)(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))(ws@8.20.0(bufferutil@4.1.0))
       lorem-ipsum:
         specifier: ^2.0.8
         version: 2.0.8
       lunary:
         specifier: ^0.8.8
-        version: 0.8.8(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6))(react@19.2.5)
+        version: 0.8.8(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))(react@19.2.5)
       mariadb:
         specifier: ^3.5.2
         version: 3.5.2
       mem0ai:
         specifier: ^3.0.3
-        version: 3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@6.0.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ws@5.2.4(bufferutil@4.1.0))
+        version: 3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@6.0.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ws@8.20.0(bufferutil@4.1.0))
       mongodb:
         specifier: ^7.1.1
         version: 7.2.0(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.8)
       openai:
         specifier: ^6.37.0
-        version: 6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)
+        version: 6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)
       peggy:
         specifier: ^5.1.0
         version: 5.1.0
@@ -715,7 +715,7 @@ importers:
         version: 4.13.1
       '@browserbasehq/stagehand':
         specifier: ^1.3.0
-        version: 1.14.0(@playwright/test@1.59.1)(bufferutil@4.1.0)(deepmerge@4.3.1)(dotenv@17.4.2)(encoding@0.1.13)(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))(zod@4.3.6)
+        version: 1.14.0(@playwright/test@1.59.1)(bufferutil@4.1.0)(deepmerge@4.3.1)(dotenv@17.4.2)(encoding@0.1.13)(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6))(zod@4.3.6)
       '@clickhouse/client':
         specifier: ^0.2.5
         version: 0.2.10
@@ -808,7 +808,7 @@ importers:
         version: link:../providers/langchain-xai
       '@layerup/layerup-security':
         specifier: ^1.5.12
-        version: 1.6.0(encoding@0.1.13)(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)
+        version: 1.6.0(encoding@0.1.13)(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)
       '@opensearch-project/opensearch':
         specifier: ^2.2.0
         version: 2.13.0
@@ -874,7 +874,7 @@ importers:
         version: 1.2.0
       chromadb:
         specifier: ^1.5.3
-        version: 1.10.5(@google/generative-ai@0.24.1)(cohere-ai@7.21.0)(encoding@0.1.13)(ollama@0.6.3)(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))
+        version: 1.10.5(@google/generative-ai@0.24.1)(cohere-ai@7.21.0)(encoding@0.1.13)(ollama@0.6.3)(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6))
       cohere-ai:
         specifier: ^7.14.0
         version: 7.21.0
@@ -895,7 +895,7 @@ importers:
         version: 2.2.7
       exa-js:
         specifier: ^1.10.3
-        version: 1.10.3(encoding@0.1.13)(ws@8.20.0(bufferutil@4.1.0))
+        version: 1.10.3(encoding@0.1.13)(ws@5.2.4(bufferutil@4.1.0))
       firebase-admin:
         specifier: ^13.7.0
         version: 13.8.0(encoding@0.1.13)
@@ -916,19 +916,19 @@ importers:
         version: 2.0.8
       lunary:
         specifier: ^0.8.8
-        version: 0.8.8(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))(react@19.2.5)
+        version: 0.8.8(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6))(react@19.2.5)
       mariadb:
         specifier: ^3.5.1
         version: 3.5.2
       mem0ai:
         specifier: ^3.0.3
-        version: 3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@5.8.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@4.7.1)(ws@8.20.0(bufferutil@4.1.0))
+        version: 3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@5.8.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@4.7.1)(ws@5.2.4(bufferutil@4.1.0))
       mongodb:
         specifier: ^6.17.0
         version: 6.21.0(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.8)
       openai:
         specifier: ^6.37.0
-        version: 6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)
+        version: 6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)
       peggy:
         specifier: ^5.1.0
         version: 5.1.0
@@ -980,7 +980,7 @@ importers:
     optionalDependencies:
       langsmith:
         specifier: '>=0.4.0 <1.0.0'
-        version: 0.6.0(@opentelemetry/api@1.9.1)(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))(ws@8.20.0(bufferutil@4.1.0))
+        version: 0.6.0(@opentelemetry/api@1.9.1)(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6))(ws@5.2.4(bufferutil@4.1.0))
 
   libs/langchain-core:
     dependencies:
@@ -1423,6 +1423,9 @@ importers:
 
   libs/providers/langchain-google:
     dependencies:
+      '@langchain/google-common':
+        specifier: workspace:*
+        version: link:../langchain-google-common
       eventsource-parser:
         specifier: ^3.0.6
         version: 3.0.8
@@ -1779,6 +1782,9 @@ importers:
       '@ibm-cloud/watsonx-ai':
         specifier: ^1.7.11
         version: 1.7.11(@swc/core@1.15.30(@swc/helpers@0.5.21))(typescript@5.8.3)
+      '@langchain/openai':
+        specifier: workspace:*
+        version: link:../langchain-openai
       ibm-cloud-sdk-core:
         specifier: ^5.4.10
         version: 5.4.11
@@ -1829,6 +1835,9 @@ importers:
       '@langchain/core':
         specifier: workspace:^
         version: link:../../langchain-core
+      '@langchain/openai':
+        specifier: workspace:^
+        version: link:../langchain-openai
       '@langchain/standard-tests':
         specifier: workspace:*
         version: link:../../../internal/standard-tests
@@ -2077,6 +2086,9 @@ importers:
 
   libs/providers/langchain-perplexity:
     dependencies:
+      '@langchain/openai':
+        specifier: workspace:*
+        version: link:../langchain-openai
       openai:
         specifier: ^6.37.0
         version: 6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)
@@ -13450,14 +13462,14 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@browserbasehq/stagehand@1.14.0(@playwright/test@1.59.1)(bufferutil@4.1.0)(deepmerge@4.3.1)(dotenv@17.4.2)(encoding@0.1.13)(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))(zod@4.3.6)':
+  '@browserbasehq/stagehand@1.14.0(@playwright/test@1.59.1)(bufferutil@4.1.0)(deepmerge@4.3.1)(dotenv@17.4.2)(encoding@0.1.13)(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6))(zod@4.3.6)':
     dependencies:
       '@anthropic-ai/sdk': 0.27.3(encoding@0.1.13)
       '@browserbasehq/sdk': 2.10.0(encoding@0.1.13)
       '@playwright/test': 1.59.1
       deepmerge: 4.3.1
       dotenv: 17.4.2
-      openai: 6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)
+      openai: 6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)
       ws: 8.20.0(bufferutil@4.1.0)
       zod: 4.3.6
       zod-to-json-schema: 3.25.2(zod@4.3.6)
@@ -17691,7 +17703,7 @@ snapshots:
   chromadb-js-bindings-win32-x64-msvc@1.3.3:
     optional: true
 
-  chromadb@1.10.5(@google/generative-ai@0.24.1)(cohere-ai@7.21.0)(encoding@0.1.13)(ollama@0.6.3)(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)):
+  chromadb@1.10.5(@google/generative-ai@0.24.1)(cohere-ai@7.21.0)(encoding@0.1.13)(ollama@0.6.3)(openai@6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)):
     dependencies:
       cliui: 8.0.1
       isomorphic-fetch: 3.0.0(encoding@0.1.13)
@@ -17699,7 +17711,7 @@ snapshots:
       '@google/generative-ai': 0.24.1
       cohere-ai: 7.21.0
       ollama: 0.6.3
-      openai: 6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6)
+      openai: 6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)
     transitivePeerDependencies:
       - encoding
 
@@ -20223,6 +20235,7 @@ snapshots:
       '@opentelemetry/api': 1.9.1
       openai: 6.37.0(ws@5.2.4(bufferutil@4.1.0))(zod@4.3.6)
       ws: 5.2.4(bufferutil@4.1.0)
+    optional: true
 
   langsmith@0.6.0(@opentelemetry/api@1.9.1)(openai@6.37.0(ws@8.20.0(bufferutil@4.1.0))(zod@4.3.6))(ws@8.20.0(bufferutil@4.1.0)):
     dependencies:
@@ -20517,7 +20530,7 @@ snapshots:
 
   media-typer@1.1.0: {}
 
-  mem0ai@3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@5.8.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@4.7.1)(ws@8.20.0(bufferutil@4.1.0)):
+  mem0ai@3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@5.8.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@4.7.1)(ws@5.2.4(bufferutil@4.1.0)):
     dependencies:
       '@anthropic-ai/sdk': 0.95.1(zod@4.3.6)
       '@azure/identity': 4.13.1
@@ -20537,7 +20550,7 @@ snapshots:
       groq-sdk: 1.1.2
       natural: 8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8)
       ollama: 0.6.3
-      openai: 4.104.0(encoding@0.1.13)(ws@8.20.0(bufferutil@4.1.0))(zod@3.25.76)
+      openai: 4.104.0(encoding@0.1.13)(ws@5.2.4(bufferutil@4.1.0))(zod@3.25.76)
       pg: 8.20.0
       redis: 4.7.1
       uuid: 9.0.1
@@ -20547,7 +20560,7 @@ snapshots:
       - encoding
       - ws
 
-  mem0ai@3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@6.0.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ws@5.2.4(bufferutil@4.1.0)):
+  mem0ai@3.0.3(@anthropic-ai/sdk@0.95.1(zod@4.3.6))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260508.1)(@google/genai@1.50.1(@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6))(bufferutil@4.1.0))(@langchain/core@libs+langchain-core)(@mistralai/mistralai@2.2.1(bufferutil@4.1.0))(@qdrant/js-client-rest@1.17.0(typescript@6.0.3))(@supabase/supabase-js@2.104.0(bufferutil@4.1.0))(@types/jest@30.0.0)(@types/pg@8.20.0)(better-sqlite3@12.9.0)(cloudflare@4.5.0(encoding@0.1.13))(compromise@14.15.0)(encoding@0.1.13)(groq-sdk@1.1.2)(natural@8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8))(ollama@0.6.3)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.1))(ws@8.20.0(bufferutil@4.1.0)):
     dependencies:
       '@anthropic-ai/sdk': 0.95.1(zod@4.3.6)
       '@azure/identity': 4.13.1
@@ -20567,7 +20580,7 @@ snapshots:
       groq-sdk: 1.1.2
       natural: 8.1.1(@aws-sdk/credential-providers@3.1034.0)(@opentelemetry/api@1.9.1)(socks@2.8.8)
       ollama: 0.6.3
-      openai: 4.104.0(encoding@0.1.13)(ws@5.2.4(bufferutil@4.1.0))(zod@3.25.76)
+      openai: 4.104.0(encoding@0.1.13)(ws@8.20.0(bufferutil@4.1.0))(zod@3.25.76)
       pg: 8.20.0
       redis: 5.12.1(@opentelemetry/api@1.9.1)
       uuid: 9.0.1

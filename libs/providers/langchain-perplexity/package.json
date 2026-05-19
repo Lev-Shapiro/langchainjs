@@ -25,6 +25,7 @@
     "test:standard": "pnpm test:standard:unit && pnpm test:standard:int"
   },
   "dependencies": {
+    "@langchain/openai": "workspace:*",
     "openai": "^6.37.0"
   },
   "peerDependencies": {
