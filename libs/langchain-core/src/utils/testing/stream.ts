@@ -314,14 +314,6 @@ export async function toHaveStreamOutput(
   };
 }
 
-export async function toHaveStreamOutputText(
-  this: ExpectExtendThis,
-  received: unknown,
-  expected: string
-): Promise<ExpectationResult> {
-  return toHaveStreamOutput.call(this, received, { text: expected });
-}
-
 /** Stream matchers for `expect.extend()`. */
 export const streamMatchers = {
   toHaveStreamText,
@@ -329,24 +321,49 @@ export const streamMatchers = {
   toHaveStreamToolCalls,
   toHaveStreamUsage,
   toHaveStreamOutput,
-  toHaveStreamOutputText,
 };
 
+/**
+ * Custom assertion helpers for values returned by `BaseChatModel.streamV2()`.
+ *
+ * These matchers consume the stream lazily through the corresponding
+ * `ChatModelStream` promise-backed properties.
+ *
+ * @typeParam R - The assertion return type provided by the test framework.
+ */
 export interface StreamMatchers<R = unknown> {
+  /**
+   * Asserts that the stream resolves to the expected concatenated text.
+   *
+   * @param expected - The exact text expected from `ChatModelStream.text`.
+   */
   toHaveStreamText(expected: string): R;
+
+  /**
+   * Asserts that the stream resolves to the expected concatenated reasoning text.
+   *
+   * @param expected - The exact reasoning text expected from `ChatModelStream.reasoning`.
+   */
   toHaveStreamReasoning(expected: string): R;
+
+  /**
+   * Asserts that the stream resolves to the expected ordered tool calls.
+   *
+   * @param expected - Tool call names and arguments expected from `ChatModelStream.toolCalls`.
+   */
   toHaveStreamToolCalls(expected: StreamToolCallExpectation[]): R;
+
+  /**
+   * Asserts that the stream resolves to usage metadata matching the expected fields.
+   *
+   * @param expected - A partial usage metadata object expected from `ChatModelStream.usage`.
+   */
   toHaveStreamUsage(expected: StreamUsageExpectation): R;
+
+  /**
+   * Asserts that the final streamed output message matches the expected fields.
+   *
+   * @param expected - A partial output expectation checked against `ChatModelStream.output`.
+   */
   toHaveStreamOutput(expected: StreamOutputExpectation): R;
-  toHaveStreamOutputText(expected: string): R;
-}
-
-declare module "vitest" {
-  // oxlint-disable-next-line @typescript-eslint/no-explicit-any
-  interface Matchers<T = any> extends StreamMatchers<T> {}
-}
-
-declare module "@vitest/expect" {
-  // oxlint-disable-next-line @typescript-eslint/no-explicit-any
-  interface Matchers<T = any> extends StreamMatchers<T> {}
 }

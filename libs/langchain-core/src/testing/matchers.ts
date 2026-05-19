@@ -473,15 +473,3 @@ export interface LangChainMatchers<R = unknown> extends StreamMatchers<R> {
   toHaveBeenInterrupted(expectedValue?: unknown): R;
   toHaveStructuredResponse(expected?: Record<string, unknown>): R;
 }
-
-declare module "vitest" {
-  // oxlint-disable-next-line @typescript-eslint/no-explicit-any
-  interface Matchers<T = any> extends LangChainMatchers<T> {}
-}
-
-declare module "@vitest/expect" {
-  // oxlint-disable-next-line @typescript-eslint/no-explicit-any
-  interface Matchers<T = any> extends LangChainMatchers<T> {}
-  // oxlint-disable-next-line @typescript-eslint/no-explicit-any
-  interface Assertion<T = any> extends LangChainMatchers<Assertion<T>> {}
-}

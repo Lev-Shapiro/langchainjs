@@ -7,8 +7,7 @@
 import type { EnhancedGenerateContentResponse } from "@google/generative-ai";
 import { finalizeContentBlock } from "@langchain/core/language_models/compat";
 import type { ChatModelStreamEvent } from "@langchain/core/language_models/event";
-import type { ContentBlock } from "@langchain/core/messages/content";
-import type { UsageMetadata } from "@langchain/core/messages/metadata";
+import type { ContentBlock, UsageMetadata } from "@langchain/core/messages";
 import { convertUsageMetadata } from "./common.js";
 
 export interface ConvertGoogleGenAIStreamOptions {

@@ -79,7 +79,6 @@ export default getBuildConfig({
     "./src/utils/types/index.ts",
     "./src/utils/uuid/index.ts",
     "./src/testing/index.ts",
-    "./src/testing/vitest-expect.ts",
     "./src/vectorstores.ts",
   ],
   define: { __PKG_VERSION__: JSON.stringify(pkg.version) },
