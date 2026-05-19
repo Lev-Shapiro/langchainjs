@@ -4,9 +4,11 @@
  * @module
  */
 
-import { OpenAI as OpenAIClient } from "openai";
 import type { ChatModelStreamEvent } from "@langchain/core/language_models/event";
-import { convertOpenAICompletionsStream } from "@langchain/openai";
+import {
+  convertOpenAICompletionsStream,
+  type OpenAICompletionsStreamChunk,
+} from "@langchain/core/language_models/openai_completions_stream";
 import type { StreamingChunkData } from "../converters/messages.js";
 
 export interface ConvertOpenRouterStreamOptions {
@@ -15,7 +17,7 @@ export interface ConvertOpenRouterStreamOptions {
 
 function mapOpenRouterChunkToOpenAI(
   data: StreamingChunkData
-): OpenAIClient.Chat.Completions.ChatCompletionChunk {
+): OpenAICompletionsStreamChunk {
   const choice = data.choices?.[0];
   if (
     choice?.delta &&
@@ -23,7 +25,7 @@ function mapOpenRouterChunkToOpenAI(
     choice.delta.reasoning_content == null
   ) {
     return {
-      ...(data as unknown as OpenAIClient.Chat.Completions.ChatCompletionChunk),
+      ...(data as unknown as OpenAICompletionsStreamChunk),
       choices: [
         {
           ...choice,
@@ -33,9 +35,9 @@ function mapOpenRouterChunkToOpenAI(
           },
         },
       ],
-    } as OpenAIClient.Chat.Completions.ChatCompletionChunk;
+    };
   }
-  return data as unknown as OpenAIClient.Chat.Completions.ChatCompletionChunk;
+  return data as unknown as OpenAICompletionsStreamChunk;
 }
 
 export async function* convertOpenRouterStream(

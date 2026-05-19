@@ -4,9 +4,11 @@
  * @module
  */
 
-import { OpenAI as OpenAIClient } from "openai";
 import type { ChatModelStreamEvent } from "@langchain/core/language_models/event";
-import { convertOpenAICompletionsStream } from "@langchain/openai";
+import {
+  convertOpenAICompletionsStream,
+  type OpenAICompletionsStreamChunk,
+} from "@langchain/core/language_models/openai_completions_stream";
 
 // oxlint-disable-next-line @typescript-eslint/no-explicit-any
 export type WatsonxStreamWrapper = { data: Record<string, any> };
@@ -17,7 +19,7 @@ export interface ConvertWatsonxStreamOptions {
 
 function watsonxWrapperToOpenAIChunk(
   wrapper: WatsonxStreamWrapper
-): OpenAIClient.Chat.Completions.ChatCompletionChunk {
+): OpenAICompletionsStreamChunk {
   const data = wrapper.data;
   const choice = data.choices?.[0];
   const delta = choice?.delta ?? {};
@@ -50,7 +52,7 @@ function watsonxWrapperToOpenAIChunk(
         }
       : null,
     system_fingerprint: null,
-  } as OpenAIClient.Chat.Completions.ChatCompletionChunk;
+  };
 }
 
 export async function* convertWatsonxStream(

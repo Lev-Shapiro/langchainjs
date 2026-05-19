@@ -17,7 +17,7 @@ import {
 } from "@langchain/core/language_models/chat_models";
 import { CallbackManagerForLLMRun } from "@langchain/core/callbacks/manager";
 import type { ChatModelStreamEvent } from "@langchain/core/language_models/event";
-import { convertOpenAICompletionsStream } from "@langchain/openai";
+import { convertOpenAICompletionsStream } from "@langchain/core/language_models/openai_completions_stream";
 import {
   ChatGeneration,
   ChatGenerationChunk,

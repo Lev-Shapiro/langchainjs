@@ -4,12 +4,12 @@
  * @module
  */
 
-import { OpenAI as OpenAIClient } from "openai";
 import type { ChatModelStreamEvent } from "@langchain/core/language_models/event";
 import {
   convertOpenAICompletionsStream,
   type ConvertOpenAICompletionsStreamOptions,
-} from "@langchain/openai";
+  type OpenAICompletionsStreamChunk,
+} from "@langchain/core/language_models/openai_completions_stream";
 
 // oxlint-disable-next-line @typescript-eslint/no-explicit-any
 export type MistralStreamData = Record<string, any>;
@@ -17,10 +17,12 @@ export type MistralStreamData = Record<string, any>;
 export interface ConvertMistralStreamOptions
   extends ConvertOpenAICompletionsStreamOptions {}
 
-function mistralDataToOpenAIChunk(data: MistralStreamData): OpenAIClient.Chat.Completions.ChatCompletionChunk {
+function mistralDataToOpenAIChunk(
+  data: MistralStreamData
+): OpenAICompletionsStreamChunk {
   const choice = data.choices?.[0];
   if (!choice) {
-    return data as OpenAIClient.Chat.Completions.ChatCompletionChunk;
+    return data as OpenAICompletionsStreamChunk;
   }
 
   const delta = choice.delta ?? {};
@@ -64,7 +66,7 @@ function mistralDataToOpenAIChunk(data: MistralStreamData): OpenAIClient.Chat.Co
     ],
     usage: data.usage ?? null,
     system_fingerprint: data.system_fingerprint ?? null,
-  } as OpenAIClient.Chat.Completions.ChatCompletionChunk;
+  };
 }
 
 export async function* convertMistralStream(

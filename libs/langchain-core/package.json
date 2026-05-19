@@ -282,6 +282,17 @@
         "default": "./dist/language_models/compat.js"
       }
     },
+    "./language_models/openai_completions_stream": {
+      "input": "./src/language_models/openai_completions_stream.ts",
+      "require": {
+        "types": "./dist/language_models/openai_completions_stream.d.cts",
+        "default": "./dist/language_models/openai_completions_stream.cjs"
+      },
+      "import": {
+        "types": "./dist/language_models/openai_completions_stream.d.ts",
+        "default": "./dist/language_models/openai_completions_stream.js"
+      }
+    },
     "./language_models/event": {
       "input": "./src/language_models/event.ts",
       "require": {

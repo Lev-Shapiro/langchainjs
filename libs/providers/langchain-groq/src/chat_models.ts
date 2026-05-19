@@ -2,7 +2,7 @@ import { toJsonSchema } from "@langchain/core/utils/json_schema";
 import { NewTokenIndices } from "@langchain/core/callbacks/base";
 import { CallbackManagerForLLMRun } from "@langchain/core/callbacks/manager";
 import type { ChatModelStreamEvent } from "@langchain/core/language_models/event";
-import { convertOpenAICompletionsStream } from "@langchain/openai";
+import { convertOpenAICompletionsStream } from "@langchain/core/language_models/openai_completions_stream";
 import {
   BaseChatModel,
   BaseChatModelCallOptions,

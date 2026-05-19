@@ -31,7 +31,6 @@
     "@langchain/core": "^1.0.0"
   },
   "devDependencies": {
-    "@langchain/openai": "workspace:^",
     "@langchain/core": "workspace:^",
     "@langchain/standard-tests": "workspace:*",
     "@langchain/tsconfig": "workspace:*",
